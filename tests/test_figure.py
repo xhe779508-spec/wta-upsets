@@ -1,4 +1,5 @@
 import unittest
+import warnings
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -34,8 +35,11 @@ class PlotTest(unittest.TestCase):
         return fig
 
     def test_draws_groups_with_no_upsets_only_upsets_or_no_matches(self):
-        fig = self.draw([2024])
-        fig.canvas.draw()
+        # Each surface here has a single point; any warning is a failure.
+        with warnings.catch_warnings():
+            warnings.simplefilter("error")
+            fig = self.draw([2024])
+            fig.canvas.draw()
         for ax in fig.axes:
             self.assertTrue(all(tick >= 0 for tick in ax.get_yticks()))
             for collection in ax.collections:  # the interval bars

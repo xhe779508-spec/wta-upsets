@@ -6,6 +6,7 @@ import io
 import json
 import tempfile
 import unittest
+import warnings
 from pathlib import Path
 
 import pandas as pd
@@ -184,7 +185,9 @@ class SmallSeasonTest(unittest.TestCase):
         (self.output / "benchmark.csv").write_text("stale\n", encoding="utf-8")
         out, err = io.StringIO(), io.StringIO()
         with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
-            code = cli.main(["--data", str(self.data), "--output", str(self.output)])
+            with warnings.catch_warnings():
+                warnings.simplefilter("error")  # under any -W setting
+                code = cli.main(["--data", str(self.data), "--output", str(self.output)])
         self.assertEqual((code, err.getvalue()), (0, ""))
         self.assertIn("Seasons: 2030", out.getvalue())
         self.assertIn("Benchmark omitted", out.getvalue())
