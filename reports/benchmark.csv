@@ -1,0 +1,3 @@
+model,train_seasons,test_season,train_matches,test_matches,parameter,estimate,brier_score,log_loss
+training_upset_rate,2022-2024,2025,7565,2443,upset_probability,0.360079,0.234354,0.661543
+rank_ratio_logistic,2022-2024,2025,7565,2443,slope,-0.522381,0.221253,0.632290
