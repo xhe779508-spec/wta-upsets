@@ -5,6 +5,7 @@ import matplotlib
 matplotlib.use("Agg")  # headless: never opens a window
 
 import matplotlib.pyplot as plt  # noqa: E402
+import numpy as np  # noqa: E402
 from matplotlib.ticker import PercentFormatter  # noqa: E402
 
 from wta_upsets.matches import SURFACES, format_seasons  # noqa: E402
@@ -29,13 +30,16 @@ def _plot_series(ax, rows, offset, color, marker, label=None):
     rows = rows.set_index("rank_gap").reindex(list(GAP_LABELS))
     rows = rows[rows["matches"].fillna(0) > 0]
     positions = [GAP_LABELS.index(gap) + offset for gap in rows.index]
+    # The bars must never be negative. They go to Matplotlib as one numeric
+    # 2 x N array (below, above): a list of arrays or a pandas Series triggers
+    # deprecated scalar conversions there when a series has a single point.
+    rate = rows["upset_rate"].to_numpy(dtype=float)
+    below = np.clip(rate - rows["wilson_low"].to_numpy(dtype=float), 0, None)
+    above = np.clip(rows["wilson_high"].to_numpy(dtype=float) - rate, 0, None)
     ax.errorbar(
         positions,
-        rows["upset_rate"],
-        yerr=[
-            (rows["upset_rate"] - rows["wilson_low"]).clip(lower=0),
-            (rows["wilson_high"] - rows["upset_rate"]).clip(lower=0),
-        ],
+        rate,
+        yerr=np.vstack([below, above]),
         fmt=marker,
         color=color,
         markersize=7,
