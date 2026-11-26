@@ -1,0 +1,91 @@
+{
+  "retrieved_date": "2026-10-16",
+  "original_repository": "https://github.com/JeffSackmann/tennis_wta",
+  "archive_repository": "https://github.com/Aneeshers/tennis-sackmann-archive",
+  "archive_commit": "83733587353df8a41f2fd4f516147d5aa83f5a8d",
+  "license": "CC BY-NC-SA 4.0",
+  "files": [
+    {
+      "file": "data/wta_matches_2022.csv",
+      "url": "https://raw.githubusercontent.com/Aneeshers/tennis-sackmann-archive/83733587353df8a41f2fd4f516147d5aa83f5a8d/wta/wta_matches_2022.csv",
+      "bytes": 530984,
+      "sha256": "f638cf65efefb01a1a10368c1d5217d5f90981fb76193ca3a9c3773c2abc2ba7"
+    },
+    {
+      "file": "data/wta_matches_2023.csv",
+      "url": "https://raw.githubusercontent.com/Aneeshers/tennis-sackmann-archive/83733587353df8a41f2fd4f516147d5aa83f5a8d/wta/wta_matches_2023.csv",
+      "bytes": 569610,
+      "sha256": "b73bf74928155b858cdb7045f6334246336cef604286cb361e695df26911ad18"
+    },
+    {
+      "file": "data/wta_matches_2024.csv",
+      "url": "https://raw.githubusercontent.com/Aneeshers/tennis-sackmann-archive/83733587353df8a41f2fd4f516147d5aa83f5a8d/wta/wta_matches_2024.csv",
+      "bytes": 542425,
+      "sha256": "d9bba2a0b3793f63c737ef62a809b82b56b3ad0ee94e1f95e78cecfac7615ed2"
+    },
+    {
+      "file": "data/wta_matches_2025.csv",
+      "url": "https://raw.githubusercontent.com/Aneeshers/tennis-sackmann-archive/83733587353df8a41f2fd4f516147d5aa83f5a8d/wta/wta_matches_2025.csv",
+      "bytes": 565244,
+      "sha256": "e4eb002bc6d828b0bd21e04ed286e68722ddc8ccbbb27ea980bf62e938377f96"
+    },
+    {
+      "file": "data/UPSTREAM_README.md",
+      "url": "https://raw.githubusercontent.com/Aneeshers/tennis-sackmann-archive/83733587353df8a41f2fd4f516147d5aa83f5a8d/wta/UPSTREAM_README.md",
+      "bytes": 3607,
+      "sha256": "f34402380f3c84f7c7d9f6156225603ef917bb2b2d6d18676a234fb5323b13c9"
+    },
+    {
+      "file": "data/LICENSE",
+      "url": "https://raw.githubusercontent.com/Aneeshers/tennis-sackmann-archive/83733587353df8a41f2fd4f516147d5aa83f5a8d/LICENSE",
+      "bytes": 913,
+      "sha256": "d128251e9a3725f694c97a6761df96610481f92a6a69ab936174acb0c4be0589"
+    }
+  ],
+  "cross_check": {
+    "description": "Comparison with a separate teaching copy of the same original dataset; not an independent collection of match results.",
+    "page": "https://36-sure.github.io/2026/eda/wta_shots.html",
+    "data_url": "https://raw.githubusercontent.com/36-SURE/2026/main/data/wta_matches_2021_2026.csv",
+    "retrieved_date": "2026-10-16",
+    "sha256": "b17d63aa7db3d1a1b4b780e7aa560a0222028b8e576ba3b2a0fa090cbb27c8e2",
+    "fields": [
+      "tourney_id",
+      "match_num",
+      "tourney_date",
+      "tourney_level",
+      "surface",
+      "round",
+      "score",
+      "winner_id",
+      "loser_id",
+      "winner_rank",
+      "loser_rank"
+    ],
+    "comparisons": [
+      {
+        "season": 2022,
+        "archive_rows": 2594,
+        "course_rows": 2594,
+        "comparison": "All analysis fields and player IDs match for every row."
+      },
+      {
+        "season": 2023,
+        "archive_rows": 2810,
+        "course_rows": 2810,
+        "comparison": "All analysis fields and player IDs match for every row."
+      },
+      {
+        "season": 2024,
+        "archive_rows": 2689,
+        "course_rows": 2689,
+        "comparison": "All analysis fields and player IDs match for every row."
+      },
+      {
+        "season": 2025,
+        "archive_rows": 2795,
+        "course_rows": 2795,
+        "comparison": "All analysis fields and player IDs match for every row."
+      }
+    ]
+  }
+}
